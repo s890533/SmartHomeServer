@@ -35,6 +35,7 @@ namespace SmartHomeServer
             InitializeComponent();
             AutodetectArduinoPort();
             AddComboBox();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btn_CTA_Click_X(object sender, EventArgs e)
@@ -79,6 +80,20 @@ namespace SmartHomeServer
         private void btn_close_Click_X(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_DoubleClick_X(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.TopMost = true;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.TopMost = true;
+            }
         }
 
         private void panel1_MouseDown_X(object sender, MouseEventArgs e)
@@ -459,6 +474,11 @@ namespace SmartHomeServer
         private void btn_Sence12_Click(object sender, EventArgs e)
         {
             Port_write("A0B0C0D0E1");
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            panel1_DoubleClick_X( sender,  e);
         }
     }
 }
